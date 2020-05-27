@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
+import { Item } from "./Item";
 
-const myStyle = { color: 'white', border: '1px solid #000', backgroundColor: 'red' };
 
-export class HolaMundo extends Component {
+export class List extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { numberOfItems: 10};
+    }
+
     render () {
-
-        const text = 'Hello World';
-        const text1 = 'Hello World Again';
+        let items = [];
+        for(let i = 0; i < this.state.numberOfItems; i++) {
+            items.push(<Item key={i} index={i}/>);
+        }
 
         return (
             <>
-                <h1 style={myStyle}>{text}</h1>
-                <h1 style={myStyle}>{text1}</h1>
+                {items}
             </>
         )
     }
 }
-

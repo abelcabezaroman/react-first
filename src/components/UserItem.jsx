@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-export class Item extends Component {
+export class UserItem extends Component {
     render () {
 
+        const userInfo = this.props.userInfo;
+
         return (
-            <h3>Item {this.props.index}</h3>
+            <li>Me llamo {userInfo.name}, tengo {userInfo.years} y soy {userInfo.rol}</li>
         )
     }
 }

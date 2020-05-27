@@ -1,23 +1,47 @@
 import React, { Component } from 'react';
-import { Item } from "./Item";
+import { UserItem } from "./UserItem";
+import { UserForm } from "./UserForm";
 
 
-export class List extends Component {
-    constructor(props) {
+export class UserList extends Component {
+    constructor (props) {
         super(props);
-        this.state = { numberOfItems: 10};
+        this.state = {
+            users: [
+                {
+                    name: 'Abel Cabeza',
+                    years: 24,
+                    rol: 'Profesor'
+                }, {
+                    name: 'Rolo',
+                    years: 25,
+                    rol: 'Estudiante'
+                }
+            ]
+        };
+    }
+
+    helloBro(){
+        alert('Hello');
     }
 
     render () {
         let items = [];
-        for(let i = 0; i < this.state.numberOfItems; i++) {
-            items.push(<Item key={i} index={i}/>);
+
+
+
+        for (const user of this.state.users) {
+            items.push(<UserItem key={user.name} userInfo={user}/>);
         }
 
         return (
-            <>
-                {items}
-            </>
+            <div>
+                <UserForm fnHelloBro={this.helloBro}/>
+                <ul>
+                    {items}
+                </ul>
+            </div>
+
         )
     }
 }

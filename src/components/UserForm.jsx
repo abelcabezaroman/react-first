@@ -1,38 +1,32 @@
 import React, { Component } from 'react';
-import { UserItem } from "./UserItem";
 
 
-export class UserList extends Component {
+export class UserForm extends Component {
     constructor (props) {
         super(props);
         this.state = {
-            users: [
-                {
-                    name: 'Abel Cabeza',
-                    years: 24,
-                    rol: 'Profesor'
-                }, {
-                    name: 'Rolo',
-                    years: 25,
-                    rol: 'Estudiante'
-                }
-            ]
-        };
+            name: ''
+        }
+    }
+
+
+    handleChange (event) {
+        console.log('##ABEL## >> UserForm >>  handleChange', event.target);
+        this.setState({ [event.target.name]: event.target.value });
+        // this.setState({ name: 'asd'});
     }
 
     render () {
-        let items = [];
-
-
-
-        for (const user of this.state.users) {
-            items.push(<UserItem key={user.name} userInfo={user}/>);
-        }
 
         return (
-            <ul>
-                {items}
-            </ul>
+            <form onSubmit={($event) => {$event.preventDefault()}}>
+                <input name='name' onChange={($event) => {this.handleChange($event)}}
+                       type="text"/>
+                <button onClick={() => {
+                    this.props.fnHelloBro();
+                }}>Guardar
+                </button>
+            </form>
         )
     }
 }

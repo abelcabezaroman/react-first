@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-import { Item } from "./Item";
 
 
-export class List extends Component {
-    constructor(props) {
+export class Counter extends Component {
+    constructor (props) {
         super(props);
-        this.state = { numberOfItems: 10};
+        this.state = { counter: 0 };
+    }
+
+    plusOne () {
+        this.setState({ counter: this.state.counter + 1 });
     }
 
     render () {
-        let items = [];
-        for(let i = 0; i < this.state.numberOfItems; i++) {
-            items.push(<Item key={i} index={i}/>);
-        }
-
         return (
-            <>
-                {items}
-            </>
+            <div>
+                {/*<button onClick={this.plusOne.bind(this)}>+</button>*/}
+                <button onClick={() => { this.plusOne()}}>+</button>
+                <p>
+                    {this.state.counter}
+                </p>
+            </div>
         )
     }
 }
