@@ -21,22 +21,22 @@ export class UserList extends Component {
         };
     }
 
-    helloBro(){
-        alert('Hello');
+    addUser (user) {
+        this.setState({ users: [...this.state.users, user] })
     }
 
     render () {
         let items = [];
 
 
-
         for (const user of this.state.users) {
-            items.push(<UserItem key={user.name} userInfo={user}/>);
+            items.push(<UserItem key={user.name + user.years + user.rol} userInfo={user}/>);
         }
 
         return (
             <div>
-                <UserForm fnHelloBro={this.helloBro}/>
+                {/*<UserForm fnHelloBro={this.helloBro.bind(this)}/>*/}
+                <UserForm fnAddUser={(user) => {this.addUser(user)}}/>
                 <ul>
                     {items}
                 </ul>
