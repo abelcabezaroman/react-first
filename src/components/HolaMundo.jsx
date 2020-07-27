@@ -4,16 +4,10 @@ const myStyle = { color: 'white', border: '1px solid #000', backgroundColor: 're
 
 export class HolaMundo extends Component {
     render () {
-
-        const text = this.props.text;
-        // const text1 = 'Hello World Again';
-
         return (
-            <>
-                <h1 style={myStyle}>{text}</h1>
-                {/*<h1 style={myStyle}>{text1}</h1>*/}
-            </>
+            <h1 style={myStyle}>Hola Mundo!</h1>
         )
     }
 }
 
+// <div style="color: white; bordeR: 1px solid #000; background-color: red"></div>

@@ -4,33 +4,42 @@ import { UserForm } from "./UserForm";
 
 
 export class UserList extends Component {
-    constructor (props) {
-        super(props);
-        this.state = {
-            users: [
-                {
-                    name: 'Abel Cabeza',
-                    years: 24,
-                    rol: 'Profesor'
-                }, {
-                    name: 'Rolo',
-                    years: 25,
-                    rol: 'Estudiante'
-                }
-            ]
-        };
-    }
+    state = {
+        users: [
+            {
+                name: 'Abel Cabeza',
+                years: 25,
+                rol: 'Profesor'
+            }, {
+                name: 'Rolo',
+                years: 25,
+                rol: 'Estudiante'
+            }
+        ]
+    };
 
     addUser (user) {
         this.setState({ users: [...this.state.users, user] })
     }
 
+    removeUser (index) {
+        const users = this.state.users;
+
+        users.splice(index, 1);
+        this.setState({ users })
+        // this.setState({ users: users })
+    }
+
+
     render () {
         let items = [];
 
 
-        for (const user of this.state.users) {
-            items.push(<UserItem key={user.name + user.years + user.rol} userInfo={user}/>);
+        for (let i = 0; i < this.state.users.length; i++) {
+            let user = this.state.users[i];
+
+            items.push(<UserItem key={i} index={i} userInfo={user}
+                                 fnRemoveUser={(index) => {this.removeUser(index)}}/>);
         }
 
         return (

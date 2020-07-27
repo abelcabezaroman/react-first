@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import { Item } from "./Item";
-
-
 export class List extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { numberOfItems: 10};
-    }
-
     render () {
         let items = [];
-        for(let i = 0; i < this.state.numberOfItems; i++) {
-            items.push(<Item key={i} index={i}/>);
+
+        for(let i = 0; i < 5; i++) {
+            items.push(<li key={i}>Item {i}</li>);
         }
 
         return (
-            <>
+            <ul>
                 {items}
-            </>
+            </ul>
         )
     }
 }
