@@ -14,12 +14,12 @@ function App () {
                 {/*<HolaMundo/>*/}
                 {/*<HolaUser/>*/}
                 {/*<List/>*/}
-                <UserItem userInfo={{
-                    name: 'Abel Cabeza',
-                    years: 25,
-                    rol: 'Profesor'
-                }}/>
-                {/*<UserList/>*/}
+                {/*<UserItem userInfo={{*/}
+                {/*    name: 'Abel Cabeza',*/}
+                {/*    years: 25,*/}
+                {/*    rol: 'Profesor'*/}
+                {/*}}/>*/}
+                <UserList/>
                 {/*<Counter/>*/}
                 {/*<CounterSuper/>*/}
                 {/*<ListProps/>*/}
