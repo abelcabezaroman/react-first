@@ -3,6 +3,7 @@ import './App.css';
 import { HelloWorldProps } from "./components/HelloWorldProps";
 import { UserItem } from "./components/UserItem";
 import { UserList } from "./components/UserList";
+import { UserListSuper } from "./components/UserListSuper";
 
 const name = 'Abel'
 
@@ -19,7 +20,8 @@ function App () {
                 {/*    years: 25,*/}
                 {/*    rol: 'Profesor'*/}
                 {/*}}/>*/}
-                <UserList/>
+                {/*<UserList/>*/}
+                <UserListSuper/>
                 {/*<Counter/>*/}
                 {/*<CounterSuper/>*/}
                 {/*<ListProps/>*/}
