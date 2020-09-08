@@ -7,23 +7,22 @@ export class Counter extends Component {
     //     this.state = { counter: 0 };
     // }
 
-    state = {counter: 0};
+    state = { count: 0};
 
     plusOne = () => {
-        this.setState({ counter: this.state.counter + 1 });
-        // this.state = { counter: this.state.counter + 1 }; MAL
+        this.setState({ count: this.state.count + 1 });
+        // this.state = { count: this.state.count + 1 }; MAL
 
-        setTimeout(() => {
-            console.log('##ABEL## >> Counter >>  plusOne', this.state.counter);
-        }, 0)
-        console.log('##ABEL## >> Counter >>  plusOne', this.state.counter);
+        // setTimeout(() => {
+        //     console.log('##ABEL## >> Counter >>  plusOne', this.state.count);
+        // }, 0)
+        // console.log('##ABEL## >> Counter >>  plusOne', this.state.count);
     }
 
     minusOne = () => {
-        this.setState({ counter: this.state.counter - 1 });
-        console.log('##ABEL## >> Counter >>  plusOne', this.state.counter);
+        this.setState({ count: this.state.count - 1 });
+        // console.log('##ABEL## >> Counter >>  plusOne', this.state.count);
     }
-
 
 
     render () {
@@ -32,14 +31,11 @@ export class Counter extends Component {
                 {/*<button onClick={this.plusOne.bind(this)}>+</button>*/}
                 <button onClick={this.plusOne}>+</button>
                 <p>
-                    {this.state.counter}
+                    {this.state.count}
                 </p>
-                <button onClick={this.minusOne}>-</button>
+                <button onClick={() => this.minusOne()}>-</button>
             </div>
         )
     }
 }
-
-
-
 
