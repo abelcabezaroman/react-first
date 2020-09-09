@@ -1,40 +1,36 @@
 import React, { Component } from 'react';
 
 const defaultUser = {
-    name: 'Abel Cabeza',
-    years: 0,
+    name: 'Abel Cabeza Román',
+    years: 25,
     rol: 'Profesor'
 };
 
 export class UserForm extends Component {
-    constructor (props) {
-        super(props);
-        this.state = defaultUser
+    state = defaultUser
+
+
+    handleChange = ($event) => {
+        this.setState({ [$event.target.name]: $event.target.value });
     }
 
-    handleChange (event) {
-        console.log('##ABEL## >> UserForm >>  handleChange', event);
-        this.setState({ [event.target.name]: event.target.value });
-    }
-
-    saveUser () {
+    saveUser = ($event) => {
+        $event.preventDefault();
         this.props.fnAddUser(this.state);
         this.setState(defaultUser)
     }
 
+
     render () {
         return (
-            <form onSubmit={($event) => {$event.preventDefault()}}>
-                <input value={this.state.name} name='name' onChange={($event) => {this.handleChange($event)}}
+            <form onSubmit={this.saveUser}>
+                <input value={this.state.name} name='name' onChange={this.handleChange}
                        type="text"/>
-                <input value={this.state.years} name='years' onChange={($event) => {this.handleChange($event)}}
+                <input value={this.state.years} name='years' onChange={this.handleChange}
                        type="number"/>
-                <input value={this.state.rol} name='rol' onChange={($event) => {this.handleChange($event)}}
+                <input value={this.state.rol} name='rol' onChange={this.handleChange}
                        type="text"/>
-                <button onClick={() => {
-                    this.saveUser();
-                }}>Guardar
-                </button>
+                <input type="submit" value="Guardar"/>
             </form>
         )
     }
