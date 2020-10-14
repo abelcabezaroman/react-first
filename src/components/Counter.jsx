@@ -15,7 +15,7 @@ export class Counter extends Component {
 
         // setTimeout(() => {
         //     console.log('##ABEL## >> Counter >>  plusOne', this.state.count);
-        // }, 0)
+        // }, 1000)
         // console.log('##ABEL## >> Counter >>  plusOne', this.state.count);
     }
 
@@ -33,7 +33,7 @@ export class Counter extends Component {
                 <p>
                     {this.state.count}
                 </p>
-                <button onClick={() => this.minusOne()}>-</button>
+                <button onClick={this.minusOne}>-</button>
             </div>
         )
     }
